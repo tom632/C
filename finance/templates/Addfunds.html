@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+<form name="quote" id="quote" method="POST" action="/Addfunds">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="cash" name="cash" placeholder="Cash" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Add Funds</button>
+    <br />
+    <br />
+    {% if invalid %}
+        <div class="alert alert-warning" role="alert">The symbol {{symbol}} is invalid</div>
+    {% endif %}
+</form>
+{% endblock %}

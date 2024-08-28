@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order History
+{% endblock %}
+
+{% block main %}
+    <table>
+
+    </table>
+
+    <table style='margin-top: 30px' class="table table-striped table-light">
+      <thead>
+        <tr>
+          <th scope="col"> Transaction Type </th>
+          <th scope="col"> Symbol </th>
+          <th scope="col"> Purchase/Sale Price </th>
+          <th scope="col"> Shares </th>
+          <th scope="col"> Transaction Time (UTC) </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for datarow in data %}
+        <tr>
+          <th scope="row">
+              {{ "BUY" if datarow["shares"] > 0 else "SELL" }}
+          </th>
+          <td>  {{ datarow["symbol"] }}  </td>
+          <td>  {{ datarow["price"] }}  </td>
+          <td>  {{ datarow["shares"]|abs }}  </td>
+          <td>  {{ datarow["timestamp"] }}  </td>
+        </tr>
+        {% endfor %}
+
+      </body>
+    </table>
+{% endblock %}

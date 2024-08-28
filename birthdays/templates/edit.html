@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Edit a Birthday</h2>
+                {% for persons in person %}
+                <form action="/update" method="post">
+                    <input type="text" name="name" id="name" value="{{ persons.name }}" placeholder="Name">
+                    <input type="text" name="day" id="day" value="{{ persons.day }}" placeholder="Day">
+                    <input type="text" name="month" id="month" value="{{ persons.month }}" placeholder="Month">
+                    <input name="id" type="hidden" value="{{ persons.id }}">
+
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                </form>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

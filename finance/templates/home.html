@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    {% if complete %}
+    <div class="alert alert-success" role="alert" > "Sale complete shares sold for {{price | usd}}" </div>
+    {% endif %}
+
+    <table style='margin-top: 30px' class="table table-striped table-light">
+      <thead>
+        <tr>
+          <th scope="col"> Symbol </th>
+          <th scope="col"> Name </th>
+          <th scope="col"> Shares </th>
+          <th scope="col"> Price </th>
+          <th scope="col"> TOTAL </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for symbol, values in owns.items() %}
+        <tr>
+          <th scope="row"> {{ symbol }} </th>
+          <td>  {{ values[0] }}  </td>
+          <td>  {{ values[1] }}  </td>
+          <td>  {{ values[2] }}  </td>
+          <td>  {{ values[3] }}  </td>
+        </tr>
+        {% endfor %}
+        <tr class='bg-success'>
+            <th scope='row' colspan='4'> Cash </th>
+            <td> {{cash}} </td>
+        </tr>
+        <tr class='bg-primary'>
+            <th scope='row' colspan='4'> TOTAL </th>
+            <td> {{total}} </td>
+        </tr>
+
+      </body>
+    </table>
+{% endblock %}
