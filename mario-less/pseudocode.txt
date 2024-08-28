@@ -1,0 +1,4 @@
+Prompt the user to enter a number
+if the number is less than 1 or greater than 8 start again
+starting at a height of 1 iteration over each number to create the blocks
+out put a new line
